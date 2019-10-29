@@ -8,6 +8,13 @@ you can download dataset from here http://www.robots.ox.ac.uk/~vgg/data/voxceleb
 
 # info
 
+
+git:
+https://github.com/hlamba28/One-Shot-Learning-with-Siamese-Networks/blob/master/Siamese%20on%20Omniglot%20Dataset.ipynb
+https://medium.com/x8-the-ai-community/audio-classification-using-cnn-coding-example-f9cbd272269e
+https://github.com/rishisidhu/CNN_spoken_digit/?source=post_page-----f9cbd272269e----------------------
+
+
 https://medium.com/analytics-vidhya/building-a-speaker-identification-system-from-scratch-with-deep-learning-f4c4aa558a56
 
 https://towardsdatascience.com/one-shot-learning-with-siamese-networks-using-keras-17f34e75bb3d
