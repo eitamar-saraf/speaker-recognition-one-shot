@@ -1,6 +1,9 @@
 import os
+
+import numpy as np
 from sklearn.model_selection import train_test_split
-from config import ROOT, join_path
+from shit.config import ROOT, join_path
+import librosa
 
 
 def loadimgs(path, n=0):
@@ -10,6 +13,7 @@ def loadimgs(path, n=0):
     curr_y = n
     # we load every alphabet seperately so we can isolate them later
     for celeb in os.listdir(path):
+        counter = 0
         print("loading celeb: " + celeb)
         lang_dict[celeb] = curr_y
         celeb_path = join_path(path, celeb)
@@ -18,8 +22,17 @@ def loadimgs(path, n=0):
             # read all the audio in the current interview
             for filename in os.listdir(interview_path):
                 audio_path = join_path(interview_path, filename)
+                audio, sr = librosa.load(audio_path, duration=3)
+                audio = np.abs(librosa.stft(audio, n_fft=512, hop_length=256))
+                pad = 259 - audio.shape[1]
+                padded_audio = np.pad(audio, [(0, 0), (0, pad)], mode='constant')
                 y.append(curr_y)
-                X.append(audio_path)
+                X.append(padded_audio)
+                counter += 1
+                if counter >= 10:
+                    break
+            if counter >= 10:
+                break
         curr_y += 1
     return X, y, lang_dict
 

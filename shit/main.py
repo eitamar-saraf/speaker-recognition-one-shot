@@ -1,9 +1,8 @@
-import librosa
 import librosa.display
 import os
 
-from data_generator import DataGenerator
-from data_provider import get_data
+from shit.data_generator import DataGenerator
+from shit.data_provider import get_data
 
 x_train, x_val, x_test, y_train, y_val, y_test, labels_dict = get_data()
 
